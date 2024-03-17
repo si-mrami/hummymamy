@@ -1,0 +1,19 @@
+.home {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	// padding: 1rem;
+
+	.homeConatainer {
+		width: 100%;
+
+		.imgages {
+			padding: 0.6rem;
+
+			img {
+				object-fit: contain;
+				width: 100%;
+			}
+		}
+	}
+}

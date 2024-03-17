@@ -1,0 +1,46 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid lightgray;
+	position: fixed;
+	width: 100%;
+
+	.containerNav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.4rem;
+		width: 100%;
+
+		.left {
+			.leftElement {
+				display: flex;
+				gap: 15px;
+
+				.cart,
+				.search,
+				.userLogin {
+					background-color: #0bb6b0;
+					color: #fff;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0.3rem;
+					cursor: pointer;
+				}
+			}
+		}
+
+		.right {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			.logo {
+				img {
+					width: 3rem;
+				}
+			}
+		}
+	}
+}

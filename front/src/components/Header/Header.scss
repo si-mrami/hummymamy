@@ -1,0 +1,22 @@
+.header {
+	// background-color: crimson;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
+	padding: 1rem;
+
+	.carousel-control-prev-icon,
+	.carousel-control-next-icon {
+		display: none;
+	}
+
+	.carousel-indicators {
+		display: none;
+	}
+
+	img {
+		// height: 40vh;
+		width: 100% !important;
+		object-fit: contain;
+	}
+}

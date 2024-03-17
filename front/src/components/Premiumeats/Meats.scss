@@ -1,0 +1,49 @@
+.meats {
+	margin-top: 2rem;
+	padding: 1rem;
+	.cardTop {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.right {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+
+			.buttonAll {
+
+				button {
+					border: none;
+					border-radius: 10px;
+					background-color: #0bb6b0;
+					padding: 0.3rem;
+					color: #FFF;
+					font-size: 13px;
+				}
+			}
+		}
+
+		.left {
+
+
+			.allProduct {
+				background-color: #0bb6b0;
+				padding: 0.5rem;
+				color: #FFF;
+				border-radius: 40px 0 0 0;
+				width: 9rem;
+
+				span {
+					font-size: 14px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	.cardList{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

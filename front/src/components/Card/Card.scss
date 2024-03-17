@@ -1,0 +1,78 @@
+.card {
+	margin-top: 1.5rem;
+	margin-left: 0.4rem;
+	border-radius: 10px;
+
+	.cardImg {
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: auto;
+			border-radius: 0 0 10px 10px;
+		}
+	}
+
+	.cardInfo {
+
+		.title {
+
+			h1 {
+				padding: 1rem;
+				font-size: 9px;
+				color: #0bb6b0;
+				text-align: center;
+			}
+		}
+
+		.desc {
+			p {
+				text-align: center;
+				font-size: 10px;
+				color: gray;
+				// text-decoration-line: line-through;
+			}
+		}
+
+		.buttonAdd {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1rem;
+			button {
+				color: #fff;
+				font-size: 22px;
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 7rem;
+				padding: 0.3rem;
+				border: none;
+				background-color: #0bb6b0;
+			}
+		}
+
+		.prices {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: 14px;
+
+			.pricebefore {
+				color: gray;
+				font-size: 10px;
+
+				span {
+					text-decoration-line: line-through;
+				}
+			}
+
+			.price {
+				font-size: 14px;
+				color: crimson;
+				font-family: 'Cairo', sans-serif;
+			}
+		}
+	}
+}
