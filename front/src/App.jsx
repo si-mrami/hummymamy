@@ -2,17 +2,21 @@ import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import Login from './pages/Login/Login';
+import Cart from './pages/Cart/Cart';
+import ProductDetails from './pages/ProductDetials/ProductDetails';
+
+// YummYummtasty.com
 
 const App = () => {
 	return (
 		<div className="app">
-			<Navbar/>
 			<Router>
+			<Navbar/>
 				<div className="appContainer">
 					<Routes>
 						<Route path='/' element={<Home />} />
-						<Route path='/login' element={<Login/>}/>
+						<Route path='/cart' element={<Cart/>}/>
+						<Route path='product/:id' element={<ProductDetails/>}/>
 					</Routes>
 				</div>
 			</Router>

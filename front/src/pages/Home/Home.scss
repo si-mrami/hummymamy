@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	// padding: 1rem;
+	width: 100% !important;
 
 	.homeConatainer {
 		width: 100%;
@@ -13,6 +13,17 @@
 			img {
 				object-fit: contain;
 				width: 100%;
+			}
+		}
+		.rightCop {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1rem;
+
+			span {
+				font-size: 12px;
+				color: gray;
 			}
 		}
 	}

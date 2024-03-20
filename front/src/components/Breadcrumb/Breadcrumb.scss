@@ -1,0 +1,20 @@
+.breadcrumbStyle {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	color: gray;
+	list-style: none;
+	gap: 10px;
+
+	li {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		font-size: 12px;
+
+		a {
+			text-decoration: none;
+			color: gray;
+		}
+	}
+}

@@ -1,0 +1,154 @@
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+import './ProductDetails.scss';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaSms } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
+import { GrCart } from "react-icons/gr";
+import { MdOutlineMessage } from "react-icons/md";
+import { useState } from 'react';
+import Footer from '../../components/Footer/Footer';
+import { FiHeart } from "react-icons/fi";
+
+
+const ProductDetails = () => {
+
+	const [show, setShow] = useState(false)
+
+	const breadcrumbItems = [
+		{ label: "الصفحة الرئيسية", url: "../" },
+		{ label: " > بوكس تجربة المشاهير " }
+	];
+
+
+	const settings = {
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		infinite: true,
+		speed: 500,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		dots: true,
+		appendDots: dots => (
+			<div>
+				<ul style={{ margin: "0px", padding: "0px", color: ' #0bb6b0', fontSize: '45px', }}>
+					{dots}
+				</ul>
+			</div>
+		),
+
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 1,
+				},
+			},
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 4,
+				},
+			},
+		],
+	};
+
+	return (
+		<>
+			<Breadcrumb items={breadcrumbItems} />
+			<div className="product">
+				<div className="topSlide">
+					<Slider {...settings}>
+						<div className="item">
+							<img src="https://cdn.salla.sa/QxvOa/rms8EERk5tFK2GCPlYi6BrefqMz72dlUQkNAo7Nw.jpg" alt="" />
+						</div>
+						<div className="item">
+							<img src="https://cdn.salla.sa/QxvOa/BNBUXNkJ3EufMoP2YOqUa9m4t2hy2Q3GiLsnXgN2.jpg" alt="" />
+						</div>
+						<div className="item">
+							<img src="https://cdn.salla.sa/QxvOa/IdehbePKftjdjoEntxMRYMWW9XIHOrNfRdfhNU6H.jpg" alt="" />
+						</div>
+					</Slider>
+				</div>
+				<div className="links">
+					<FaWhatsapp style={{ color: 'gray', fontSize: '30px', cursor: 'pointer' }} />
+					<FaTwitter style={{ color: 'gray', fontSize: '30px', cursor: 'pointer' }} />
+					<FaSms style={{ color: 'gray', fontSize: '30px', cursor: 'pointer' }} />
+					<FaTelegramPlane style={{ color: 'gray', fontSize: '30px', cursor: 'pointer' }} />
+					<FaInstagram style={{ color: 'gray', fontSize: '30px', cursor: 'pointer' }} />
+				</div>
+				<div className="productInfo">
+					<div className="title">
+						<h1>بوكس تجربة المشاهير</h1>
+						<div className="subTitle">
+							<span>بوكس تجربة جميع اللحوم والمشاوي</span>
+						</div>
+					</div>
+					<div className="prices">
+						<span className='beforPrice'>SAR 699</span>
+						<span className='price'>SAR 599</span>
+					</div>
+					<div className="caty">
+						<span>بوكس تجربة المشاهير</span>
+						<p>شامل الضريبة</p>
+					</div>
+					<div className="desc">
+						<small>شامل وكامل ويجمل ويكمل</small>
+						<p>غنم - بقر - حاشي - دجاج - مشاوي - ستيك 🥩- سجق - برجر - خبز - جبنة - صوصات - بهارات - خضار 🌶 🌽 🍅 🥕 🥬 🧅</p>
+					</div>
+					<div className="lastDe">
+						<span>لاتفوتك التجربة الحصرية 😋</span>
+					</div>
+					<div className="tafassile">
+						<h1>تفاصيل المنتج</h1>
+						<div className="item">
+							<div className="left">
+								<GrCart />
+								<span>الوزن</span>
+							</div>
+							<div className="right">{7} كيلو</div>
+						</div>
+					</div>
+					<div className="items">
+						<div className="center">
+							<div className="conterLeft">الكمية</div>
+							<div className="conterRight">
+								<div className="pluas">+</div>
+								<div className="quantity">4</div>
+								<div className="increas">-</div>
+							</div>
+						</div>
+						<div className="right">
+							<div className="buttonShow" onClick={() => setShow(!show)}>
+								<MdOutlineMessage />
+								<span>كتابة ملاحظة</span>
+							</div>
+							{show && <div className="notInput">
+								<input type="text" placeholder='ملاحضات ...' />
+							</div>}
+						</div>
+					</div>
+				</div>
+			</div>
+			<Footer />
+			<div className="rightCop">
+				<span>جميع الحقوق محفوضة | 2024</span>
+			</div>
+			<div className="lastpage">
+				<div className="waht">
+					<div className="heard">
+						<FiHeart />
+					</div>
+					<div className="cartButton">
+						<button>اضافة الى سلة</button>
+					</div>
+				</div>
+			</div>
+		</>
+	)
+}
+
+export default ProductDetails
