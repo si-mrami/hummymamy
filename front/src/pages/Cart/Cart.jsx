@@ -7,15 +7,46 @@ import { MdOutlineMessage } from "react-icons/md";
 import { useState } from 'react';
 import { FaCalculator } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
+import TextField from '@mui/material/TextField';
+import { Dialog, DialogTitle, DialogContent, DialogContentText } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-	const [show, setShow] = useState(false)
+	const [openDialog, setOpenDialog] = useState(false);
+
+
+	const handleCloseDialog = () => {
+		setOpenDialog(false);
+	};
+
+
+	const [show, setShow] = useState(false);
+	const [quantity, setQuantity] = useState(1);
 
 	const breadcrumbItems = [
 		{ label: "الصفحة الرئيسية", url: "../" },
 		{ label: " > سلة المشتريات" }
 	];
+
+	const handleOpenDialog = () => {
+		setOpenDialog(true);
+	}
+
+	const handleIncre = () => {
+		setQuantity(quantity + 1);
+	}
+
+	const handleDecre = () => {
+		if (quantity !== 1) {
+			setQuantity(quantity - 1);
+		}
+	}
+
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+	};
+
 	return (
 		<>
 			<Breadcrumb items={breadcrumbItems} />
@@ -53,9 +84,9 @@ const Cart = () => {
 						<div className="center">
 							<div className="conterLeft">الكمية</div>
 							<div className="conterRight">
-								<div className="pluas">+</div>
-								<div className="quantity">4</div>
-								<div className="increas">-</div>
+								<div className="pluas" onClick={handleIncre}>+</div>
+								<div className="quantity">{quantity}</div>
+								<div className="increas" onClick={handleDecre}>-</div>
 							</div>
 						</div>
 						<div className="right">
@@ -78,8 +109,8 @@ const Cart = () => {
 						</div>
 					</div>
 					<div className="buttonValide">
-						<button>
-							اتمام الطلب
+						<button onClick={() => handleOpenDialog()}>
+							أطلب
 							<FaArrowLeft />
 						</button>
 					</div>
@@ -89,6 +120,55 @@ const Cart = () => {
 			<div className="rightCop">
 				<span>جميع الحقوق محفوضة | 2024</span>
 			</div>
+			<Dialog className='dailog' open={openDialog} onClose={handleCloseDialog}>
+				<DialogTitle style={{ textAlign: 'end', color: 'gray', direction: 'rtl' }}> لطلب مشاوي الشيف </DialogTitle>
+				<DialogContent>
+					<DialogContentText>
+						<div className="form" style={{ width: '100%', padding: '0.4rem', direction: 'rtl' }}>
+							<form onSubmit={handleFormSubmit} style={{ direction: 'rtl', display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+								<TextField
+									style={{ textAlign: 'end' }}
+									fullWidth
+									variant="outlined"
+									label='الاسم الثلاتي'
+									required
+								/>
+
+								<TextField
+									style={{ textAlign: 'end' }}
+									fullWidth
+									label='رقم الجوال'
+									required
+								/>
+
+								<TextField
+									style={{ textAlign: 'end' }}
+									variant="outlined"
+									fullWidth
+									label='الايميل'
+									required
+									type='email'
+								/>
+
+								<TextField
+									label=" العنوان "
+									variant="outlined"
+									fullWidth
+
+									required
+
+								/>
+								<Link to='/payment'>
+									<button style={{ backgroundColor: '#0bb6b0', color: '#FFF', border: 'none', padding: '0.5rem', borderRadius: '10px' }}>
+										اتمام الطلب
+										<FaArrowLeft />
+									</button>
+								</Link>
+							</form>
+						</div>
+					</DialogContentText>
+				</DialogContent>
+			</Dialog>
 		</>
 	)
 }
