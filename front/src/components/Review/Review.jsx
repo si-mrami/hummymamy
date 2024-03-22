@@ -14,13 +14,13 @@ const Review = () => {
 		autoplay: true,
 		autoplaySpeed: 2000,
 		dots: true,
-		appendDots: dots => (
-			<div>
-				<ul style={{ margin: "0px", padding: "0px", color: ' #0bb6b0', fontSize: '45px', }}>
-					{dots}
-				</ul>
-			</div>
-		),
+		// appendDots: dots => (
+		// 	<div>
+		// 		<ul style={{ margin: "0px", padding: "0px", color: ' #0bb6b0', fontSize: '45px', }}>
+		// 			{dots}
+		// 		</ul>
+		// 	</div>
+		// ),
 
 		responsive: [
 			{
@@ -110,55 +110,8 @@ const Review = () => {
 			text: 'شكراً لكل الطاقم العاملين على هذا المتجر على قولتهم ولا غلطه وملتزمين بمواعيد الشحن و اسعارهم خيالية وجودة عالية',
 			time: 'مند 3 ايام',
 
-		},
-		{
-			reviewer: ' أمجد التعلي',
-			purchase: true,
-			rating: 5,
-			text: 'متجر فريد من نوعه و ان شاء الله مو اخر تعامل راح اخذ منكم منتجات واجهزة  ماقصرتو حقيقة 🌹',
-			time: 'مند يوم',
-
-		},
-		{
-			reviewer: ' Iyas Al-Enezi',
-			purchase: true,
-			rating: 5,
-			text: 'أفضل متجر سرعه بالرد وصلني الجهاز في وقت قياسي شكراً لكم',
-			time: 'مند 3 ايام',
-
-		},
-		{
-			reviewer: 'إلياس السبيعي ',
-			purchase: true,
-			rating: 5,
-			text: 'الشكر موصول للفريق المذهل في المتجر شكرا لكم وصلني الجهاز .',
-			time: 'مند يومين',
-
-		},
-		{
-			reviewer: ' Aws Al-Bishi',
-			purchase: true,
-			rating: 5,
-			text: 'تستاهلون والله مليون نجمه تعاملكم خيالي خدمه مميزه',
-			time: 'مند 4ايام',
-
-		},
-		{
-			reviewer: ' آصف الغامدي',
-			purchase: true,
-			rating: 5,
-			text: 'الله يعزكم انت افضل متجر قد شريت منه اسعاركم رهيببببببببب 🤘',
-			time: 'مند يوم',
-
-		},
-		{
-			reviewer: 'Elijah Al-Maliki ',
-			purchase: true,
-			rating: 5,
-			text: 'انصحكم بتعامل معهم الحقيقة الجهاز وصلني مع كامل ملحقات الجهاز كامل بدون نقص افضل متجر الصراحه',
-			time: 'مند يومين',
-
-		},]
+		}
+		,]
 
 	return (
 		<div className="review">
@@ -167,29 +120,30 @@ const Review = () => {
 					<h1>آراء العملاء</h1>
 				</div>
 				<Slider {...settings}>
-					<div className="item">
-						<div className="itemTop">
-							<div className="desc">
-								<p> جميييل جداً. و خيارات كثيره و اسعاره مناسبه </p>
+					{reviews.map((review, index) => (
+						<div className="item" key={index}>
+							<div className="itemTop">
+								<div className="desc">
+									<p>{review.text}</p>
+								</div>
+							</div>
+							<div className="itemInfo">
+								<div className="image">
+									<img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="" />
+								</div>
+								<div className="info">
+									<span>{review.reviewer}</span>
+									<p>{review.time}</p>
+								</div>
+								<div className="start">
+									<IoStarSharp style={{ color: 'yellow' }} />
+									<IoStarSharp style={{ color: 'yellow' }} />
+									<IoStarSharp style={{ color: 'yellow' }} />
+									<IoStarSharp style={{ color: 'yellow' }} />
+								</div>
 							</div>
 						</div>
-						<div className="itemInfo">
-							<div className="image">
-								<img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="" />
-							</div>
-							<div className="info">
-								<span>Mohamed</span>
-								<p>جدة</p>
-							</div>
-							<div className="start">
-								<IoStarSharp style={{ color: 'yellow' }} />
-								<IoStarSharp style={{ color: 'yellow' }} />
-								<IoStarSharp style={{ color: 'yellow' }} />
-								<IoStarSharp style={{ color: 'yellow' }} />
-							</div>
-						</div>
-					</div>
-
+					))}
 				</Slider>
 			</div>
 		</div>
