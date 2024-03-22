@@ -1,3 +1,139 @@
 .payment {
 	padding: 1rem;
+
+	.paymetCentainer {
+		// background-color: crimson;
+
+		.userInfo {
+			border: 1px solid lightgray;
+			padding: 0.4rem;
+			border-radius: 5px;
+			background-color: #0bb6b0;
+			color: #fff;
+
+			.items {
+
+				.item {
+					display: flex;
+					gap: 20px;
+				}
+			}
+		}
+
+		.buttonValide {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			margin-top: 2rem;
+
+			button {
+				background-color: #FFF;
+				border: none;
+				cursor: pointer;
+				color: #0bb6b0;
+				padding: 0.5rem;
+				border-radius: 5px;
+				width: 6rem;
+			}
+		}
+
+		.paymentInfo {
+			padding: 1rem;
+			border: 1px solid lightgray;
+			margin-top: 1rem;
+			border-radius: 5px;
+			background-color: #0bb6b0;
+
+			.cartDate {
+				margin-top: 1rem;
+				display: flex;
+				gap: 20px;
+
+				.date {
+					width: 100%;
+					margin-bottom: 1rem;
+					border: 1px solid rgb(24, 23, 23);
+					background-color: #fff;
+					border-radius: 5px;
+
+					input {
+						border: none;
+						width: 100%;
+						padding: 0.4rem;
+						border-radius: 5px;
+
+						&:focus {
+							outline: none;
+						}
+					}
+				}
+
+				.csv {
+					width: 100%;
+					margin-bottom: 1rem;
+					border: 1px solid rgb(24, 23, 23);
+					background-color: #fff;
+					border-radius: 5px;
+
+					input {
+						border: none;
+						width: 100%;
+						padding: 0.4rem;
+						border-radius: 5px;
+
+						&:focus {
+							outline: none;
+						}
+					}
+				}
+			}
+
+			.cartName {
+				border: 1px solid rgb(24, 23, 23);
+				background-color: #fff;
+				border-radius: 5px;
+				margin-top: 1rem;
+
+				input {
+					border: none;
+					width: 100%;
+					padding: 0.4rem;
+					border-radius: 5px;
+
+					&:focus {
+						outline: none;
+					}
+				}
+			}
+		}
+
+		.images {
+			display: flex;
+			text-align: end;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			margin-top: 1rem;
+			gap: 15px;
+
+			img {
+				width: 3rem;
+				height: 2rem;
+				object-fit: cover;
+			}
+		}
+
+	}
+}
+
+.rightCop {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+
+	span {
+		font-size: 12px;
+		color: gray;
+	}
 }

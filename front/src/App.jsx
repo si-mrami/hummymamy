@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Cart from './pages/Cart/Cart';
 import ProductDetails from './pages/ProductDetials/ProductDetails';
 import PaymentForm from './components/PaymentForm/PaymentForm';
+import VerfyCode from './components/verfyCode/VerfyCode';
 
 // YummYummtasty.com
 
@@ -19,6 +20,7 @@ const App = () => {
 						<Route path='/cart' element={<Cart />} />
 						<Route path='product/:id' element={<ProductDetails />} />
 						<Route path='/payment' element={<PaymentForm />} />
+						<Route path='/code-verfycation' element={<VerfyCode />} />
 					</Routes>
 				</div>
 			</Router>

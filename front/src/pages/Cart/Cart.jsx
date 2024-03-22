@@ -14,7 +14,16 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
 
 	const [openDialog, setOpenDialog] = useState(false);
+	const [name, setName] = useState();
+	const [phone, setPhone] = useState();
+	const [email, setEmail] = useState();
+	const [address, setAddress] = useState();
 
+
+	const handleNamechange = (e) => { setName(e.target.value) }
+	const handleEmailchange = (e) => { setEmail(e.target.value) }
+	const handlePhonechange = (e) => { setPhone(e.target.value) }
+	const handleAddresschange = (e) => { setAddress(e.target.value) }
 
 	const handleCloseDialog = () => {
 		setOpenDialog(false);
@@ -46,6 +55,18 @@ const Cart = () => {
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 	};
+
+	// save data to localStorge
+	const saveToLocal = () => {
+		try {
+			localStorage.setItem('name', name);
+			localStorage.setItem('phone', phone);
+			localStorage.setItem('email', email);
+			localStorage.setItem('address', address);
+		} catch (error) {
+			console.error("Error saving data to localStorage:", error);
+		}
+	}
 
 	return (
 		<>
@@ -132,6 +153,8 @@ const Cart = () => {
 									variant="outlined"
 									label='الاسم الثلاتي'
 									required
+									value={name}
+									onChange={handleNamechange}
 								/>
 
 								<TextField
@@ -139,6 +162,8 @@ const Cart = () => {
 									fullWidth
 									label='رقم الجوال'
 									required
+									value={phone}
+									onChange={handlePhonechange}
 								/>
 
 								<TextField
@@ -148,18 +173,21 @@ const Cart = () => {
 									label='الايميل'
 									required
 									type='email'
+									value={email}
+									onChange={handleEmailchange}
 								/>
 
 								<TextField
 									label=" العنوان "
 									variant="outlined"
 									fullWidth
-
+									value={address}
 									required
-
+									onChange={handleAddresschange}
 								/>
 								<Link to='/payment'>
-									<button style={{ backgroundColor: '#0bb6b0', color: '#FFF', border: 'none', padding: '0.5rem', borderRadius: '10px' }}>
+									<button onClick={saveToLocal}
+										disabled={!name || !phone || !email || !address} style={{ backgroundColor: '#0bb6b0', color: '#FFF', border: 'none', padding: '0.5rem', borderRadius: '10px' }}>
 										اتمام الطلب
 										<FaArrowLeft />
 									</button>
