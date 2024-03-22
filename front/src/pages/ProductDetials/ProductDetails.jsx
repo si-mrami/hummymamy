@@ -12,11 +12,23 @@ import { MdOutlineMessage } from "react-icons/md";
 import { useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import { FiHeart } from "react-icons/fi";
+import { FaCalculator } from "react-icons/fa6";
 
 
 const ProductDetails = () => {
 
-	const [show, setShow] = useState(false)
+	const [show, setShow] = useState(false);
+	const [quantity, setQuantity] = useState(1);
+
+	const handleIncre = () => {
+		setQuantity(quantity + 1);
+	}
+
+	const handleDecre = () => {
+		if (quantity !== 1) {
+			setQuantity(quantity - 1);
+		}
+	}
 
 	const breadcrumbItems = [
 		{ label: "الصفحة الرئيسية", url: "../" },
@@ -116,9 +128,9 @@ const ProductDetails = () => {
 						<div className="center">
 							<div className="conterLeft">الكمية</div>
 							<div className="conterRight">
-								<div className="pluas">+</div>
-								<div className="quantity">4</div>
-								<div className="increas">-</div>
+								<div className="pluas" onClick={handleIncre}>+</div>
+								<div className="quantity">{quantity}</div>
+								<div className="increas" onClick={handleDecre}>-</div>
 							</div>
 						</div>
 						<div className="right">
@@ -129,6 +141,15 @@ const ProductDetails = () => {
 							{show && <div className="notInput">
 								<input type="text" placeholder='ملاحضات ...' />
 							</div>}
+						</div>
+					</div>
+					<div className="totalprice">
+						<div className="left">
+							<FaCalculator />
+							<span>مجموع </span>
+						</div>
+						<div className="right">
+							<span>SAR 599</span>
 						</div>
 					</div>
 				</div>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './VerfyCode.scss';
 import CircularProgress from '@mui/material/CircularProgress';
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import Footer from '../Footer/Footer';
@@ -47,11 +46,7 @@ const VerfyCode = () => {
 							</div>
 						</div>
 					) : (
-						<motion.div
-							initial={{ opacity: -5, x: -300 }}
-							animate={{ opacity: 5, x: 3 }}
-							transition={{ duration: 2 }}
-						>
+
 							<div className="code">
 								<div className="form">
 									<span>
@@ -64,7 +59,6 @@ const VerfyCode = () => {
 									</Link>
 								</div>
 							</div>
-						</motion.div>
 					)}
 				</div>
 			</div>
