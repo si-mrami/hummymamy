@@ -4,14 +4,15 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Card from '../Card/Card';
-import { Link } from 'react-router-dom';
+import { productData } from '../../Data';
 
 
 const Cards = () => {
 
 	const sliderRef = useRef(null);
+	const [products, setProducts] = useState(productData);
 
 	const handlePrevClick = () => {
 		if (sliderRef.current) {
@@ -70,18 +71,11 @@ const Cards = () => {
 				</div>
 			</div>
 			<Slider ref={sliderRef} {...settings}>
-				<Link to={`/product/${2}`}>
-					<Card />
-				</Link>
-				<Link to={`/product/${3}`}>
-					<Card />
-				</Link>
-				<Link to={`/product/${4}`}>
-					<Card />
-				</Link>
-				<Link to={`/product/${5}`}>
-					<Card />
-				</Link>
+				{products.map(product => (
+					<div key={product.id}>
+						<Card product={product} />
+					</div>
+				))}
 			</Slider>
 		</div>
 	)

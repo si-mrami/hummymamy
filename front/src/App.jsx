@@ -6,25 +6,28 @@ import Cart from './pages/Cart/Cart';
 import ProductDetails from './pages/ProductDetials/ProductDetails';
 import PaymentForm from './components/PaymentForm/PaymentForm';
 import VerfyCode from './components/verfyCode/VerfyCode';
+import { CartProvider } from './CartContext';
 
 // YummYummtasty.com
 
 const App = () => {
 	return (
-		<div className="app">
-			<Router>
-				<Navbar />
-				<div className="appContainer">
-					<Routes>
-						<Route path='/' element={<Home />} />
-						<Route path='/cart' element={<Cart />} />
-						<Route path='product/:id' element={<ProductDetails />} />
-						<Route path='/payment' element={<PaymentForm />} />
-						<Route path='/code-verfycation' element={<VerfyCode />} />
-					</Routes>
-				</div>
-			</Router>
-		</div>
+		<CartProvider>
+			<div className="app">
+				<Router>
+					<Navbar />
+					<div className="appContainer">
+						<Routes>
+							<Route path='/' element={<Home />} />
+							<Route path='/cart' element={<Cart />} />
+							<Route path='product/:id' element={<ProductDetails />} />
+							<Route path='/payment' element={<PaymentForm />} />
+							<Route path='/code-verfycation' element={<VerfyCode />} />
+						</Routes>
+					</div>
+				</Router>
+			</div>
+		</CartProvider>
 	)
 }
 

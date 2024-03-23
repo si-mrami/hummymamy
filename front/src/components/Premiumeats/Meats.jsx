@@ -1,7 +1,10 @@
+import { useState } from 'react';
+import { productData } from '../../Data';
 import Card from '../Card/Card';
 import './Meats.scss';
 
 const Meats = () => {
+	const [products, setProducts] = useState(productData);
 	return (
 		<div className="meats">
 			<div className="cardTop">
@@ -17,11 +20,11 @@ const Meats = () => {
 				</div>
 			</div>
 			<div className="cardList">
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				
+				{products.slice(0, 4).map(product => (
+					<div key={product.id}>
+						<Card product={product} />
+					</div>
+				))}
 			</div>
 		</div>
 	)

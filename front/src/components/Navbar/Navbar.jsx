@@ -5,9 +5,12 @@ import { FaRegUser } from "react-icons/fa";
 import { TiThMenu } from "react-icons/ti";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/hummyyummtasty.png';
+import { CartContext } from '../../CartContext';
+import { useContext } from 'react';
 
 
 const Navbar = () => {
+	const { cartItems } = useContext(CartContext);
 	return (
 		<div className="navbar">
 			<div className="containerNav">
@@ -24,9 +27,16 @@ const Navbar = () => {
 						<div className="userLogin"><FaRegUser /></div>
 						<div className="search"><IoSearchOutline /></div>
 						<Link to='/cart'>
-							<div className="cart">
-								<CiShoppingCart />
-							</div>
+							{cartItems.length > 0 ? (
+								<div className="cart">
+									<span>{cartItems.length}</span>
+									<CiShoppingCart />
+								</div>
+							) : (
+								<div className="cart">
+									<CiShoppingCart />
+								</div>
+							)}
 						</Link>
 					</div>
 				</div>

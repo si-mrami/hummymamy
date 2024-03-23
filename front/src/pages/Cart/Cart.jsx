@@ -4,12 +4,13 @@ import Footer from '../../components/Footer/Footer';
 import { FaCheck } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 import { MdOutlineMessage } from "react-icons/md";
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaCalculator } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
 import TextField from '@mui/material/TextField';
 import { Dialog, DialogTitle, DialogContent, DialogContentText } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../CartContext';
 
 const Cart = () => {
 
@@ -18,6 +19,9 @@ const Cart = () => {
 	const [phone, setPhone] = useState();
 	const [email, setEmail] = useState();
 	const [address, setAddress] = useState();
+
+	const { cartItems, removeFromCart } = useContext(CartContext);
+	// console.log("CartItem: ", cartItems);
 
 
 	const handleNamechange = (e) => { setName(e.target.value) }
@@ -67,6 +71,9 @@ const Cart = () => {
 			console.error("Error saving data to localStorage:", error);
 		}
 	}
+	const handleRemoveItem = (productId) => {
+		removeFromCart(productId);
+	};
 
 	return (
 		<>
@@ -84,42 +91,44 @@ const Cart = () => {
 					<span>طريقة الدفع</span>
 				</div>
 				<div className="items">
-					<div className="item">
-						<div className="left">
-							<div className="first">
-								<div className="productImg">
-									<img src="https://cdn.salla.sa/QxvOa/design/Rk4wmbgZEZfu1kpuRLgxkcQ7cug2asCUpXHaLu0B.png" alt="" />
+					{cartItems.map((product, index) => (
+						<div className="item" key={index}>
+							<div className="left">
+								<div className="first">
+									<div className="productImg">
+										<img src={product.image} alt="" />
+									</div>
+									<div className="descInfo">
+										<span>{product.title}</span>
+										<p>{product.originalPrice}</p>
+									</div>
+									<div className="closeIcon" onClick={() => handleRemoveItem(product.id)}>
+										<IoMdClose />
+									</div>
 								</div>
-								<div className="descInfo">
-									<span>lohooome</span>
-									<p>570 SAR</p>
-								</div>
-								<div className="closeIcon">
-									<IoMdClose />
+								<div className="description">
+									<p>{product.subTitle}</p>
 								</div>
 							</div>
-							<div className="description">
-								<p>hey</p>
+							<div className="center">
+								<div className="conterLeft">الكمية</div>
+								<div className="conterRight">
+									<div className="pluas" onClick={handleIncre}>+</div>
+									<div className="quantity">{quantity}</div>
+									<div className="increas" onClick={handleDecre}>-</div>
+								</div>
+							</div>
+							<div className="right">
+								<div className="buttonShow" onClick={() => setShow(!show)}>
+									<MdOutlineMessage />
+									<span>كتابة ملاحظة</span>
+								</div>
+								{show && <div className="notInput">
+									<input type="text" placeholder='ملاحضات ...' />
+								</div>}
 							</div>
 						</div>
-						<div className="center">
-							<div className="conterLeft">الكمية</div>
-							<div className="conterRight">
-								<div className="pluas" onClick={handleIncre}>+</div>
-								<div className="quantity">{quantity}</div>
-								<div className="increas" onClick={handleDecre}>-</div>
-							</div>
-						</div>
-						<div className="right">
-							<div className="buttonShow" onClick={() => setShow(!show)}>
-								<MdOutlineMessage />
-								<span>كتابة ملاحظة</span>
-							</div>
-							{show && <div className="notInput">
-								<input type="text" placeholder='ملاحضات ...' />
-							</div>}
-						</div>
-					</div>
+					))}
 					<div className="totalprice">
 						<div className="left">
 							<FaCalculator />

@@ -5,11 +5,13 @@ import Card from '../Card/Card';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { shefProduct } from '../../Data';
 
 
 const Shef = () => {
 	const sliderRef = useRef(null);
+	const [products, setProducts] = useState(shefProduct);
 
 	const handlePrevClick = () => {
 		if (sliderRef.current) {
@@ -68,10 +70,11 @@ const Shef = () => {
 				</div>
 			</div>
 			<Slider ref={sliderRef} {...settings}>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+				{products.map(product => (
+					<div key={product.id}>
+						<Card product={product} />
+					</div>
+				))}
 			</Slider>
 		</div>
 	)

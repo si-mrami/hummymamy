@@ -17,6 +17,10 @@
 				display: flex;
 				gap: 15px;
 
+				a {
+					text-decoration: none;
+				}
+
 				.cart,
 				.search,
 				.userLogin {
@@ -28,6 +32,13 @@
 					justify-content: center;
 					padding: 0.3rem;
 					cursor: pointer;
+					width: 2rem;
+					height: 2rem;
+
+					span {
+						color: crimson;
+						font-size: 12px;
+					}
 				}
 			}
 		}
