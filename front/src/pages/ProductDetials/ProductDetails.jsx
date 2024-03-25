@@ -9,13 +9,14 @@ import { FaSms } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
 import { MdOutlineMessage } from "react-icons/md";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import { FiHeart } from "react-icons/fi";
 import { FaCalculator } from "react-icons/fa6";
-
+import { useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
+	const { id } = useParams();
 
 	const [show, setShow] = useState(false);
 	const [quantity, setQuantity] = useState(1);
@@ -34,6 +35,13 @@ const ProductDetails = () => {
 		{ label: "الصفحة الرئيسية", url: "../" },
 		{ label: " > بوكس تجربة المشاهير " }
 	];
+
+	useEffect(() => {
+		const fetcheProduct = () => {
+			console.log("id :", id);
+		}
+		fetcheProduct();
+	}, [id])
 
 
 	const settings = {
@@ -163,7 +171,7 @@ const ProductDetails = () => {
 					<div className="heard">
 						<FiHeart />
 					</div>
-					<div className="cartButton">
+					<div className="cartButton" >
 						<button>اضافة الى سلة</button>
 					</div>
 				</div>
