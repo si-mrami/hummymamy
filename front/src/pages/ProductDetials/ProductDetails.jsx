@@ -14,12 +14,14 @@ import Footer from '../../components/Footer/Footer';
 import { FiHeart } from "react-icons/fi";
 import { FaCalculator } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
+import { productData } from '../../Data';
 
 const ProductDetails = () => {
 	const { id } = useParams();
 
 	const [show, setShow] = useState(false);
 	const [quantity, setQuantity] = useState(1);
+	const [product, setProduct] = useState([]);
 
 	const handleIncre = () => {
 		setQuantity(quantity + 1);
@@ -37,11 +39,16 @@ const ProductDetails = () => {
 	];
 
 	useEffect(() => {
-		const fetcheProduct = () => {
-			console.log("id :", id);
+		const fetchProduct = () => {
+			const result = productData.filter((pro) => pro.id === parseInt(id));
+			if (result.length > 0) {
+				setProduct(result[0]);
+			} else {
+				console.log("Product not found");
+			}
 		}
-		fetcheProduct();
-	}, [id])
+		fetchProduct();
+	}, [id]);
 
 
 	const settings = {
@@ -101,65 +108,71 @@ const ProductDetails = () => {
 					<FaInstagram style={{ color: 'gray', fontSize: '30px', cursor: 'pointer' }} />
 				</div>
 				<div className="productInfo">
-					<div className="title">
-						<h1>بوكس تجربة المشاهير</h1>
-						<div className="subTitle">
-							<span>بوكس تجربة جميع اللحوم والمشاوي</span>
-						</div>
-					</div>
-					<div className="prices">
-						<span className='beforPrice'>SAR 699</span>
-						<span className='price'>SAR 599</span>
-					</div>
-					<div className="caty">
-						<span>بوكس تجربة المشاهير</span>
-						<p>شامل الضريبة</p>
-					</div>
-					<div className="desc">
-						<small>شامل وكامل ويجمل ويكمل</small>
-						<p>غنم - بقر - حاشي - دجاج - مشاوي - ستيك 🥩- سجق - برجر - خبز - جبنة - صوصات - بهارات - خضار 🌶 🌽 🍅 🥕 🥬 🧅</p>
-					</div>
-					<div className="lastDe">
-						<span>لاتفوتك التجربة الحصرية 😋</span>
-					</div>
-					<div className="tafassile">
-						<h1>تفاصيل المنتج</h1>
-						<div className="item">
-							<div className="left">
-								<GrCart />
-								<span>الوزن</span>
+					{product && (
+						<>
+							<div className="title">
+								{/* <h1>بوكس تجربة المشاهير</h1> */}
+								<h1>{product.title}</h1>
+								<div className="subTitle">
+									{/* <span>بوكس تجربة جميع اللحوم والمشاوي</span> */}
+									<span>{product.subTitle}</span>
+								</div>
 							</div>
-							<div className="right">{7} كيلو</div>
-						</div>
-					</div>
-					<div className="items">
-						<div className="center">
-							<div className="conterLeft">الكمية</div>
-							<div className="conterRight">
-								<div className="pluas" onClick={handleIncre}>+</div>
-								<div className="quantity">{quantity}</div>
-								<div className="increas" onClick={handleDecre}>-</div>
+							<div className="prices">
+								<span className='beforPrice'>SAR 699</span>
+								<span className='price'>SAR 599</span>
 							</div>
-						</div>
-						<div className="right">
-							<div className="buttonShow" onClick={() => setShow(!show)}>
-								<MdOutlineMessage />
-								<span>كتابة ملاحظة</span>
+							<div className="caty">
+								<span>بوكس تجربة المشاهير</span>
+								<p>شامل الضريبة</p>
 							</div>
-							{show && <div className="notInput">
-								<input type="text" placeholder='ملاحضات ...' />
-							</div>}
-						</div>
-					</div>
-					<div className="totalprice">
-						<div className="left">
-							<FaCalculator />
-							<span>مجموع </span>
-						</div>
-						<div className="right">
-							<span>SAR 599</span>
-						</div>
-					</div>
+							<div className="desc">
+								<small>شامل وكامل ويجمل ويكمل</small>
+								<p>غنم - بقر - حاشي - دجاج - مشاوي - ستيك 🥩- سجق - برجر - خبز - جبنة - صوصات - بهارات - خضار 🌶 🌽 🍅 🥕 🥬 🧅</p>
+							</div>
+							<div className="lastDe">
+								<span>لاتفوتك التجربة الحصرية 😋</span>
+							</div>
+							<div className="tafassile">
+								<h1>تفاصيل المنتج</h1>
+								<div className="item">
+									<div className="left">
+										<GrCart />
+										<span>الوزن</span>
+									</div>
+									<div className="right">{7} كيلو</div>
+								</div>
+							</div>
+							<div className="items">
+								<div className="center">
+									<div className="conterLeft">الكمية</div>
+									<div className="conterRight">
+										<div className="pluas" onClick={handleIncre}>+</div>
+										<div className="quantity">{quantity}</div>
+										<div className="increas" onClick={handleDecre}>-</div>
+									</div>
+								</div>
+								<div className="right">
+									<div className="buttonShow" onClick={() => setShow(!show)}>
+										<MdOutlineMessage />
+										<span>كتابة ملاحظة</span>
+									</div>
+									{show && <div className="notInput">
+										<input type="text" placeholder='ملاحضات ...' />
+									</div>}
+								</div>
+							</div>
+							<div className="totalprice">
+								<div className="left">
+									<FaCalculator />
+									<span>مجموع </span>
+								</div>
+								<div className="right">
+									<span>SAR 599</span>
+								</div>
+							</div>
+						</>
+					)}
 				</div>
 			</div>
 			<Footer />

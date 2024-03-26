@@ -26,11 +26,11 @@ const Card = ({ product }) => {
 	return (
 		<>
 			<div className="card">
-				<div className="cardImg">
-					<img src={product.image} alt="" />
-				</div>
-				<div className="cardInfo">
-					<Link to={`/product/${product.id}`} >
+				<Link to={`/product/${product.id}`} >
+					<div className="cardImg">
+						<img src={product.image} alt="" />
+					</div>
+					<div className="cardInfo">
 						<div className="title">
 							<h1>{product.title}</h1>
 						</div>
@@ -46,15 +46,14 @@ const Card = ({ product }) => {
 								<span>{product.discountedPrice}</span>
 							</div>
 						</div>
-					</Link>
-					<div className="buttonAdd" onClick={handleAddToCart}>
-						<button>
-							<CiShoppingCart />
-						</button>
 					</div>
+				</Link>
+				<div className="buttonAdd" onClick={handleAddToCart}>
+					<button>
+						<CiShoppingCart />
+					</button>
 				</div>
 			</div>
-		
 		</>
 	);
 }
