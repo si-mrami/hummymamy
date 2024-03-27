@@ -165,45 +165,39 @@ const Cart = () => {
 				<span>جميع الحقوق محفوضة | 2024</span>
 			</div>
 			<Dialog className='dailog' open={openDialog} onClose={handleCloseDialog}>
-				<DialogTitle style={{ textAlign: 'end', color: 'gray', direction: 'rtl' }}> لطلب مشاوي الشيف </DialogTitle>
+				<DialogTitle style={{  color: 'gray', direction: 'rtl', fontSize:'15px' }}>المرجو ادخال جميع المعلومات الصحيحة</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
 						<div className="form" style={{ width: '100%', padding: '0.4rem', direction: 'rtl' }}>
 							<form onSubmit={handleFormSubmit} style={{ direction: 'rtl', display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-								<TextField
-									style={{ textAlign: 'end' }}
-									fullWidth
-									variant="outlined"
-									label='الاسم الثلاتي'
+								<input
+									style={{ border: '1px solid  rgb(24, 23, 23)', padding: '0.7rem', borderRadius: '6px' }}
+									placeholder='الاسم الثلاتي'
 									required
 									value={name}
 									onChange={handleNamechange}
 								/>
 
-								<TextField
-									style={{ textAlign: 'end' }}
-									fullWidth
-									label='رقم الجوال'
+								<input
+									style={{ border: '1px solid  rgb(24, 23, 23)', padding: '0.7rem', borderRadius: '6px' }}
+									placeholder='رقم الجوال'
 									required
 									value={phone}
 									onChange={handlePhonechange}
 								/>
 
-								<TextField
-									style={{ textAlign: 'end' }}
-									variant="outlined"
-									fullWidth
-									label='الايميل'
+								<input
+									style={{ border: '1px solid  rgb(24, 23, 23)', padding: '0.7rem', borderRadius: '6px' }}
+									placeholder='الايميل'
 									required
 									type='email'
 									value={email}
 									onChange={handleEmailchange}
 								/>
 
-								<TextField
-									label=" العنوان "
-									variant="outlined"
-									fullWidth
+								<input
+									style={{ border: '1px solid  rgb(24, 23, 23)', padding: '0.7rem', borderRadius: '6px' }}
+									placeholder=" العنوان "
 									value={address}
 									required
 									onChange={handleAddresschange}
