@@ -21,7 +21,6 @@ const Cart = () => {
 	const [address, setAddress] = useState();
 
 	const { cartItems, removeFromCart } = useContext(CartContext);
-	// console.log("CartItem: ", cartItems);
 
 
 	const handleNamechange = (e) => { setName(e.target.value) }
@@ -73,6 +72,16 @@ const Cart = () => {
 	}
 	const handleRemoveItem = (productId) => {
 		removeFromCart(productId);
+	};
+
+	const calculateTotalPrice = () => {
+		let totalPrice = 0;
+		cartItems.map((product) => {
+			const price = parseFloat(product.originalPrice.replace('SAR', '').trim());
+			totalPrice += price * quantity;
+		});
+
+		return totalPrice.toFixed(2);
 	};
 
 	return (
@@ -129,21 +138,26 @@ const Cart = () => {
 							</div>
 						</div>
 					))}
-					<div className="totalprice">
-						<div className="left">
-							<FaCalculator />
-							<span>مجموع السلة</span>
-						</div>
-						<div className="right">
-							<span>SAR 599</span>
-						</div>
-					</div>
-					<div className="buttonValide">
-						<button onClick={() => handleOpenDialog()}>
-							أطلب
-							<FaArrowLeft />
-						</button>
-					</div>
+					{cartItems.length > 0 && (
+						<>
+							<div className="totalprice">
+								<div className="left">
+									<FaCalculator />
+									<span>مجموع السلة</span>
+								</div>
+								<div className="right">
+									<span>SAR {calculateTotalPrice()}</span>
+								</div>
+							</div>
+
+							<div className="buttonValide">
+								<button onClick={() => handleOpenDialog()}>
+									أطلب
+									<FaArrowLeft />
+								</button>
+							</div>
+						</>
+					)}
 				</div>
 			</div>
 			<Footer />

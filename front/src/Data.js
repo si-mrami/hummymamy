@@ -7,9 +7,9 @@ export const productData = [
     originalPrice: "SAR 599",
     discountedPrice: "SAR 699",
     image:
-      "https://cdn.salla.sa/QxvOa/rms8EERk5tFK2GCPlYi6BrefqMz72dlUQkNAo7Nw.jpg",
+     [ "https://cdn.salla.sa/QxvOa/rms8EERk5tFK2GCPlYi6BrefqMz72dlUQkNAo7Nw.jpg"],
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -32,13 +32,7 @@ export const productData = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
-      items: [
-        {
-          label: "الوزن",
-          value: "7 كيلو",
-        },
-      ],
+      value: "7 كيلو",
     },
   },
 
@@ -52,7 +46,7 @@ export const productData = [
     image:
       "https://cdn.salla.sa/QxvOa/1rBU0v9xF80rCpv5uSWyEw640QphbRUAwNentPZb.png",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -94,7 +88,7 @@ export const productData = [
     image:
       "https://cdn.salla.sa/QxvOa/SfSHMHUjyksyK7PL84YV6H0GVjP3Te7dIKGetib3.jpg",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -117,7 +111,6 @@ export const productData = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",
@@ -137,7 +130,7 @@ export const productData = [
     image:
       "https://cdn.salla.sa/QxvOa/xa6SpPSIOVmO9TfUs5xv6kqPBR9jXm0T3a6Z30ae.jpg",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -160,7 +153,6 @@ export const productData = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",
@@ -180,7 +172,7 @@ export const productData = [
     image:
       "https://cdn.salla.sa/QxvOa/zupozKEl1tOIMwQMo4SSHdHs6aviP8aar2uDQaxH.jpg",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -203,7 +195,6 @@ export const productData = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",
@@ -223,7 +214,7 @@ export const productData = [
     image:
       "https://cdn.salla.sa/QxvOa/3vl2U9zx1kNaXwsRCZhxy4Fp1zkNLNMc3F2IqhMd.png",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -246,7 +237,6 @@ export const productData = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",
@@ -266,7 +256,7 @@ export const productData = [
     image:
       "https://cdn.salla.sa/QxvOa/xKXN8Kcdel9u4fUdYSMZmrAbvsEmYAUwaPnbpABL.png",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -289,7 +279,6 @@ export const productData = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",
@@ -311,7 +300,7 @@ export const shefProduct = [
     image:
       "https://cdn.salla.sa/QxvOa/zupozKEl1tOIMwQMo4SSHdHs6aviP8aar2uDQaxH.jpg",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -334,7 +323,6 @@ export const shefProduct = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",
@@ -354,7 +342,7 @@ export const shefProduct = [
     image:
       "https://cdn.salla.sa/QxvOa/3vl2U9zx1kNaXwsRCZhxy4Fp1zkNLNMc3F2IqhMd.png",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -377,7 +365,6 @@ export const shefProduct = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",
@@ -397,7 +384,7 @@ export const shefProduct = [
     image:
       "https://cdn.salla.sa/QxvOa/xKXN8Kcdel9u4fUdYSMZmrAbvsEmYAUwaPnbpABL.png",
     categoryName: "بوكس تجربة المشاهير",
-    categoryDescription: "شامل الضريبة",
+    task: "شامل الضريبة",
     description: {
       additionalInfo: "شامل وكامل ويجمل ويكمل",
       items: [
@@ -420,7 +407,6 @@ export const shefProduct = [
       message: "لاتفوتك التجربة الحصرية 😋",
     },
     details: {
-      title: "تفاصيل المنتج",
       items: [
         {
           label: "الوزن",

@@ -1,16 +1,19 @@
 .navbar {
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid lightgray;
-	position: fixed;
-	width: 100%;
+	margin-bottom: 2rem;
 
 	.containerNav {
+		background-color: #fff;
+		z-index: 99;
+		border-bottom: 1px solid lightgray;
+		position: fixed;
+		width: 100%;
+		top: 0;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0.4rem;
-		width: 100%;
+		padding: 0.8rem;
 
 		.left {
 			.leftElement {
@@ -47,6 +50,7 @@
 			display: flex;
 			align-items: center;
 			gap: 20px;
+
 			.logo {
 				img {
 					width: 3rem;

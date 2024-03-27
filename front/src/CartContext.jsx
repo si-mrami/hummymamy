@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext();
 
@@ -10,10 +10,13 @@ export const CartProvider = ({ children }) => {
 		return storedCartItems ? JSON.parse(storedCartItems) : [];
 	});
 
+	const [message, setMessage] = useState(false);
+
 	// add a product to the cart
 	const addToCart = (product) => {
 		const newCartItems = [...cartItems, product];
 		setCartItems(newCartItems);
+		setMessage(true);
 		localStorage.setItem('cartItems', JSON.stringify(newCartItems));
 	};
 
@@ -30,11 +33,23 @@ export const CartProvider = ({ children }) => {
 		localStorage.removeItem('cartItems');
 	};
 
+	useEffect(() => {
+		let timeout;
+		if (message) {
+			timeout = setTimeout(() => {
+				setMessage(false);
+			}, 2000);
+		}
+
+		return () => clearTimeout(timeout);
+	}, [message]);
+
 	const value = {
 		cartItems,
 		addToCart,
 		removeFromCart,
 		clearCart,
+		message,
 	};
 
 	return (

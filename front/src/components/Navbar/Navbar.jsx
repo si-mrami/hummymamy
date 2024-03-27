@@ -2,12 +2,12 @@ import './Navbar.scss';
 import { CiShoppingCart } from "react-icons/ci";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
-import { TiThMenu } from "react-icons/ti";
+// import { TiThMenu } from "react-icons/ti";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/hummyyummtasty.png';
 import { CartContext } from '../../CartContext';
 import { useContext } from 'react';
-
+import Badge from '@mui/material/Badge';
 
 const Navbar = () => {
 	const { cartItems } = useContext(CartContext);
@@ -27,16 +27,11 @@ const Navbar = () => {
 						<div className="userLogin"><FaRegUser /></div>
 						<div className="search"><IoSearchOutline /></div>
 						<Link to='/cart'>
-							{cartItems.length > 0 ? (
-								<div className="cart">
-									<span>{cartItems.length}</span>
-									<CiShoppingCart />
-								</div>
-							) : (
-								<div className="cart">
-									<CiShoppingCart />
-								</div>
-							)}
+								<Badge badgeContent={cartItems.length} color="secondary">
+									<div className="cart">
+										<CiShoppingCart />
+									</div>
+								</Badge>
 						</Link>
 					</div>
 				</div>

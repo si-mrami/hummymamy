@@ -3,12 +3,11 @@ import { CiShoppingCart } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { useCart } from "../../CartContext";
 import Snackbar from '@mui/material/Snackbar';
-import { useState } from "react";
+import React, { useState } from "react";
 import SnackbarContent from '@mui/material/SnackbarContent';
 
 const Card = ({ product }) => {
 	const { addToCart } = useCart();
-	const [openSnackbar, setOpenSnackbar] = useState(false);
 
 	if (!product || !product.image) {
 		return null;
@@ -16,12 +15,9 @@ const Card = ({ product }) => {
 
 	const handleAddToCart = () => {
 		addToCart(product);
-		setOpenSnackbar(true);
 	};
 
-	const handleCloseSnackbar = () => {
-		setOpenSnackbar(false);
-	};
+
 
 	return (
 		<>
@@ -54,6 +50,7 @@ const Card = ({ product }) => {
 					</button>
 				</div>
 			</div>
+
 		</>
 	);
 }

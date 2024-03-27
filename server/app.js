@@ -200,27 +200,55 @@ app.get("/get-review/:id", async (req, res) => {
   }
 });
 
-app.post("/store-product", upload.array("images", 4), async (req, res) => {
-  const { name, description, price, beforePrice, category, hashtags } =
-    req.body;
+app.post("/add", upload.array("images", 4), async (req, res) => {
+  const {
+    title,
+    subTitle,
+    point,
+    originalPrice,
+    discountedPrice,
+    task,
+    description,
+    lastDetails,
+    details,
+    categoryName,
+    hashtags,
+  } = req.body;
   const images = req.files.map((file) => ({
     data: file.buffer,
     contentType: file.mimetype,
   }));
 
-  const product = new Product({
-    name,
-    description,
-    price,
-    beforePrice,
-    category,
-    hashtags,
-    images,
-  });
-
   try {
-    const savedProduct = await product.save();
-    res.json({ status: "success", product: savedProduct });
+    const productData = {
+      title,
+      subTitle,
+      point,
+      originalPrice,
+      discountedPrice,
+      task,
+      description,
+      lastDetails,
+      details,
+      categoryName,
+      hashtags,
+      images,
+    };
+
+    // Create a new Product instance with productData
+    const newProduct = new Product(productData);
+
+    // Save the new product to the database
+    const savedProduct = await newProduct.save();
+
+    // Respond with success message
+    res
+      .status(200)
+      .json({
+        status: "OK",
+        message: "Product added successfully!",
+        product: savedProduct,
+      });
   } catch (error) {
     console.error("Failed to store product data:", error);
     res.status(500).json({ status: "fail", error: error.message });
@@ -733,26 +761,22 @@ app.patch("/update-category/:oldCategory/:newCategory", async (req, res) => {
     );
 
     if (result.nModified > 0) {
-      res
-        .status(200)
-        .json({
-          status: "success",
-          message: `${result.nModified} documents updated`,
-        });
+      res.status(200).json({
+        status: "success",
+        message: `${result.nModified} documents updated`,
+      });
     } else {
-      res
-        .status(404)
-        .json({
-          status: "notfound",
-          message: "No documents found for the specified category",
-        });
+      res.status(404).json({
+        status: "notfound",
+        message: "No documents found for the specified category",
+      });
     }
   } catch (error) {
     console.error("Error updating category:", error);
     res.status(500).json({ status: "fail", message: "Internal server error" });
   }
 });
-
-app.listen(5000, () => {
-  console.log("Port connected");
+const port = 8080;
+app.listen(port, () => {
+  console.log(`server rouning on port ${port}`);
 });
